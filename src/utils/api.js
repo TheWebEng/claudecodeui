@@ -113,6 +113,8 @@ export const api = {
     authenticatedFetch('/api/providers/sessions/running'),
   providerSessionId: (sessionId) =>
     authenticatedFetch(`/api/providers/sessions/${encodeURIComponent(sessionId)}/provider-id`),
+  recentConversations: ({ limit = 40, offset = 0 } = {}) =>
+    authenticatedFetch(`/api/providers/sessions/recent?limit=${limit}&offset=${offset}`),
   restoreSession: (sessionId) =>
     authenticatedFetch(`/api/providers/sessions/${sessionId}/restore`, {
       method: 'POST',
